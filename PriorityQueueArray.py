@@ -16,6 +16,7 @@ class PriorityQueueArray:
         """ Add new item to the queue """
 
         self.queue.append(item)
+        self.queue.sort()
 
     def pop(self) -> Optional[int]:
         """ Remove item from the queue """
@@ -23,9 +24,4 @@ class PriorityQueueArray:
         if self.is_empty():
             return None
 
-        index = 0
-        for i in range(1, len(self.queue)):
-            if self.queue[i] < self.queue[index]:
-                index = i
-
-        return self.queue.pop(index)
+        return self.queue.pop(0)
